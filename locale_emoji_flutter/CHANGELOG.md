@@ -1,3 +1,7 @@
+## 0.1.4
+
+* Align with latest `locale_emoji` version
+
 ## 0.1.3
 
 * Add doc comments.

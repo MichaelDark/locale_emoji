@@ -5,10 +5,13 @@ import 'utils.dart';
 /// The UTF-16 A is positioned at 65 (0x41),
 /// and we have subtracted this from the region A character index 127462 (0x1F1E6):
 ///
-/// 127462 (0x1F1E6) - 65 (0x41) //= 127397 (0x1F1A5)
-///
 /// To get the correct flag emoji index, we simply add the received index to the offset number.
-const _flagOffset = 0x1F1E6 - 0x41;
+///
+/// Notes:
+/// 127462 == 0x1F1E6
+///     65 == 0x41
+/// 127397 == 0x1F1A
+const _offset = 0x1F1E6 - 0x41;
 
 /// Get Flag Emoji from the locale information.
 ///
@@ -35,7 +38,6 @@ String? getFlagEmoji(
     return null;
   }
 
-  final a = String.fromCharCode(country.runes.first + _flagOffset);
-  final b = String.fromCharCode(country.runes.last + _flagOffset);
-  return a + b;
+  return String.fromCharCode(country.codeUnitAt(0) + _offset) +
+      String.fromCharCode(country.codeUnitAt(1) + _offset);
 }
