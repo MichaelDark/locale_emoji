@@ -6,7 +6,7 @@ extension FlagEmojiLocaleExt on Locale {
   /// Get Flag Emoji from the Locale.
   String? get flagEmoji {
     return getFlagEmoji(
-      languageCode,
+      languageCode: languageCode,
       scriptCode: scriptCode,
       countryCode: countryCode,
     );

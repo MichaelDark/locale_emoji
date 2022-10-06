@@ -1,17 +1,21 @@
+## 0.2.0
+
+- Align with latest `locale_emoji` version
+
 ## 0.1.4
 
-* Align with latest `locale_emoji` version
+- Align with latest `locale_emoji` version
 
 ## 0.1.3
 
-* Add doc comments.
-* Add example.
-* Update package description.
+- Add doc comments.
+- Add example.
+- Update package description.
 
 ## 0.1.1
 
-* Fix README link.
+- Fix README link.
 
 ## 0.1.0
 
-* Initial release.
+- Initial release.
