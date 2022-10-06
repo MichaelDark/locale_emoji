@@ -1,6 +1,6 @@
 name: locale_emoji
 description: Package to convert Locale to emoji
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/MichaelDark/locale_emoji
 
 environment:
@@ -9,3 +9,4 @@ environment:
 dev_dependencies:
   lints: ^1.0.0
   test: ^1.16.0
+  http: ^0.13.0
