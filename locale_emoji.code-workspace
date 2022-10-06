@@ -1,0 +1,16 @@
+{
+    "folders": [
+      {
+        "path": ".",
+        "name": "Root"
+      },
+      {
+        "path": "locale_emoji",
+        "name": "Locale Emoji"
+      },
+      {
+        "path": "locale_emoji_flutter",
+        "name": "Locale Emoji (Flutter)"
+      }
+    ]
+  }

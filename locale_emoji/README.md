@@ -16,6 +16,26 @@ final flagDe = le.getFlagEmoji('de'); // 🇩🇪
 final flagSk = le.getFlagEmoji('sk', scriptCode: 'Latin', countryCode: 'SK'); // 🇸🇰
 ```
 
+### Flutter
+
+For flutter, use `locale_emoji_flutter` package instead.
+
+```dart
+import 'package:locale_emoji_flutter/locale_emoji_flutter.dart';
+
+//...
+
+final Locale localeDe = Locale('de');
+final flagDe = localeDe.flagEmoji; // 🇩🇪
+
+final Locale localeSk = Locale.fromSubtags(
+  languageCode: 'sk',
+  scriptCode: 'Latin',
+  countryCode: 'SK',
+);
+final flagSk = localeSk.flagEmoji; // 🇸🇰
+```
+
 ## Additional information
 
 Defaults might be updated in the origin: [`cldr-core`](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/likelySubtags.json).
