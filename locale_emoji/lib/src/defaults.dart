@@ -1,6 +1,7 @@
 /// Default correspondence between language code and country code
 ///
-/// Thankfully taken from https://github.com/10xjs/locale-emoji
+/// Thankfully taken from https://github.com/10xjs/locale-emoji,
+/// and can be updated using tools script (check README.md)
 const Map<String, String> languageCodeToCountryCode = {
   // --- DEFAULTS START ---
   'aa': 'ET',

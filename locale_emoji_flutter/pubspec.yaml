@@ -1,6 +1,6 @@
 name: locale_emoji_flutter
-description: Convert Locale to flag emoji
-version: 0.1.1
+description: Convert Locale (i.e. class from dart:ui package) to flag emoji
+version: 0.1.3
 homepage: https://github.com/MichaelDark/locale_emoji
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  locale_emoji: ^0.1.2
+  locale_emoji: ^0.1.3
 
 dev_dependencies:
   flutter_test:
