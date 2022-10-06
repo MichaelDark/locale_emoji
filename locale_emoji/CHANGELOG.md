@@ -1,3 +1,24 @@
+## 0.2.0
+
+* **BREAKING** Inorder to support getting flag from an actual country code, using `getFlagEmoji(countryCode: 'UA')`, API changed:
+```
+// Before
+getFlagEmoji('', countryCode: 'UA')
+String? getFlagEmoji(
+  String languageCode, {
+  String? scriptCode,
+  String? countryCode,
+})
+
+// After
+getFlagEmoji(countryCode: 'UA')
+String? getFlagEmoji({
+  String? languageCode,
+  String? scriptCode,
+  String? countryCode,
+})
+```
+
 ## 0.1.4
 
 * Fix code unit conversion.

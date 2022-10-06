@@ -3,88 +3,46 @@ import 'package:test/test.dart';
 
 void main() {
   group('getEmojiFlag', () {
-    Map<EmojiFlagTestCase, String?> testCases = {
-      const EmojiFlagTestCase('de'): '🇩🇪',
-      const EmojiFlagTestCase('de', countryCode: 'DE'): '🇩🇪',
-      const EmojiFlagTestCase('de', countryCode: 'CH'): '🇨🇭',
-      const EmojiFlagTestCase('en'): '🇺🇸',
-      const EmojiFlagTestCase('EN'): '🇺🇸',
-      const EmojiFlagTestCase('en', countryCode: 'GB'): '🇬🇧',
-      const EmojiFlagTestCase('en', countryCode: 'US'): '🇺🇸',
-      const EmojiFlagTestCase('EN', countryCode: 'US'): '🇺🇸',
-      const EmojiFlagTestCase('EN', countryCode: 'us'): '🇺🇸',
-      const EmojiFlagTestCase('en', countryCode: 'us'): '🇺🇸',
-      const EmojiFlagTestCase('pt'): '🇧🇷',
-      const EmojiFlagTestCase('sk', scriptCode: 'Latin', countryCode: 'SK'):
-          '🇸🇰',
-      const EmojiFlagTestCase('eo'): null,
-      const EmojiFlagTestCase('zh'): '🇨🇳',
-      const EmojiFlagTestCase('zh', countryCode: 'TW'): '🇹🇼',
-      const EmojiFlagTestCase('zh', countryCode: 'tw'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'Bopo'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'Hanb'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'Hant'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'BOPO'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'HANB'): '🇹🇼',
-      const EmojiFlagTestCase('zh', scriptCode: 'HANT'): '🇹🇼',
-      const EmojiFlagTestCase('rubbish'): null,
-    };
-
-    for (final testCase in testCases.keys) {
-      String from = testCase.toLanguageTag();
-      String? to = testCases[testCase];
-
-      test('$from -> $to', () {
-        expect(
-          getFlagEmoji(
-            testCase.languageCode,
-            scriptCode: testCase.scriptCode,
-            countryCode: testCase.countryCode,
-          ),
-          equals(to),
-          reason: '${testCase.toLanguageTag()} should match $to',
-        );
-      });
-    }
+    test('#01', () => _test('🇺🇦', code: 'UA'));
+    test('#02', () => _test('🇺🇦', code: 'ua'));
+    test('#03', () => _test('🇩🇪', lang: 'de'));
+    test('#04', () => _test('🇩🇪', lang: 'de', code: 'DE'));
+    test('#05', () => _test('🇨🇭', lang: 'de', code: 'CH'));
+    test('#06', () => _test('🇺🇸', lang: 'en'));
+    test('#07', () => _test('🇺🇸', lang: 'EN'));
+    test('#08', () => _test('🇬🇧', lang: 'en', code: 'GB'));
+    test('#09', () => _test('🇺🇸', lang: 'en', code: 'US'));
+    test('#10', () => _test('🇺🇸', lang: 'EN', code: 'US'));
+    test('#11', () => _test('🇺🇸', lang: 'EN', code: 'us'));
+    test('#12', () => _test('🇺🇸', lang: 'en', code: 'us'));
+    test('#13', () => _test('🇧🇷', lang: 'pt'));
+    test('#14', () => _test('🇨🇳', lang: 'zh'));
+    test('#15', () => _test('🇹🇼', lang: 'zh', code: 'TW'));
+    test('#16', () => _test('🇹🇼', lang: 'zh', code: 'tw'));
+    test('#17', () => _test('🇹🇼', lang: 'zh', script: 'Bopo'));
+    test('#18', () => _test('🇹🇼', lang: 'zh', script: 'Hanb'));
+    test('#19', () => _test('🇹🇼', lang: 'zh', script: 'Hant'));
+    test('#20', () => _test('🇹🇼', lang: 'zh', script: 'BOPO'));
+    test('#21', () => _test('🇹🇼', lang: 'zh', script: 'HANB'));
+    test('#22', () => _test('🇹🇼', lang: 'zh', script: 'HANT'));
+    test('#23', () => _test(null, lang: 'rubbish'));
+    test('#24', () => _test('🇸🇰', lang: 'sk', script: 'Latin', code: 'SK'));
   });
 }
 
-class EmojiFlagTestCase {
-  final String languageCode;
-  final String? scriptCode;
-  final String? countryCode;
-
-  const EmojiFlagTestCase(this.languageCode,
-      {this.scriptCode, this.countryCode});
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is EmojiFlagTestCase && other.hashCode == hashCode;
-  }
-
-  @override
-  int get hashCode =>
-      languageCode.hashCode ^ scriptCode.hashCode ^ countryCode.hashCode;
-
-  /// From [Locale] from `dart:ui`
-  ///
-  /// Returns a syntactically valid Unicode BCP47 Locale Identifier.
-  ///
-  /// Some examples of such identifiers: "en", "es-419", "hi-Deva-IN" and
-  /// "zh-Hans-CN". See http://www.unicode.org/reports/tr35/ for technical
-  /// details.
-  String toLanguageTag() => _rawToString('-');
-
-  String _rawToString(String separator) {
-    final StringBuffer out = StringBuffer(languageCode);
-    if (scriptCode != null && scriptCode!.isNotEmpty) {
-      out.write('$separator$scriptCode');
-    }
-    if (countryCode != null && countryCode!.isNotEmpty) {
-      out.write('$separator$countryCode');
-    }
-    return out.toString();
-  }
+void _test(
+  String? expected, {
+  String? lang,
+  String? script,
+  String? code,
+}) {
+  expect(
+    getFlagEmoji(
+      languageCode: lang,
+      scriptCode: script,
+      countryCode: code,
+    ),
+    equals(expected),
+    reason: '[$lang, $script, $code] should match $expected',
+  );
 }

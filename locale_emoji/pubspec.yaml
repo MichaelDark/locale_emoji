@@ -1,6 +1,6 @@
 name: locale_emoji
 description: Convert Locale (i.e. language code, script code and country code) to flag emoji
-version: 0.1.4
+version: 0.2.0
 homepage: https://github.com/MichaelDark/locale_emoji
 
 environment:
