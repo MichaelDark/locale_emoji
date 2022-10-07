@@ -1,5 +1,5 @@
 name: locale_emoji_flutter
-description: Convert 🌍 Locale (language code, script code and country code) to the corresponding 🏳️ Emoji Flag 🏴
+description: "Convert 🌍 Locale (language code, script code and country code) to the corresponding 🏳️ Emoji Flag 🏴"
 version: 0.2.1
 homepage: https://github.com/MichaelDark/locale_emoji
 
