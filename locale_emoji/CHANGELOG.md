@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Update README
+
 ## 0.2.0
 
 - **BREAKING** Inorder to support getting flag from an actual country code, using `getFlagEmoji(countryCode: 'UA')`, API changed:

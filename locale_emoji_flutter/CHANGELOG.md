@@ -1,3 +1,7 @@
+## 0.2.1
+
+- Update README
+
 ## 0.2.0
 
 - Align with latest `locale_emoji` version

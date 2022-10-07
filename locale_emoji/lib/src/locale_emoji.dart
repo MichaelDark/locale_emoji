@@ -16,9 +16,9 @@ const _offset = 0x1F1E6 - 0x41;
 /// Pattern for country code according to ISO 3166-1 (alpha-2 code)
 const _countryPattern = r"^[A-Z]{2}$";
 
-/// Get Flag Emoji from the locale information.
+/// Returns Flag Emoji from the locale information.
 ///
-/// Casing of input parameters is can by any (lower, UPPER, mIxEd).
+/// Casing of input parameters can be any (i.e. lower, UPPER, mIxEd).
 String? getFlagEmoji({
   String? languageCode,
   String? scriptCode,
