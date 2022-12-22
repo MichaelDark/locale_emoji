@@ -13,4 +13,10 @@
         "name": "Locale Emoji (Flutter)"
       }
     ]
+    ,"settings": {
+      "files.exclude": {
+        "locale_emoji": true,
+        "locale_emoji_flutter": true,
+      }
+    }
   }
