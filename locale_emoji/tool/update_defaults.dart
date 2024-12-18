@@ -3,9 +3,9 @@ import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
-/// Raw file for https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/likelySubtags.json
+/// Raw file for https://github.com/unicode-org/cldr-json/blob/main/cldr-json/cldr-core/supplemental/likelySubtags.json
 const subtagsJsonUrl =
-    'https://raw.githubusercontent.com/unicode-cldr/cldr-core/master/supplemental/likelySubtags.json';
+    'https://raw.githubusercontent.com/unicode-org/cldr-json/refs/heads/main/cldr-json/cldr-core/supplemental/likelySubtags.json';
 
 void main() async {
   final subtagsJsonResponse = await http.get(Uri.parse(subtagsJsonUrl));

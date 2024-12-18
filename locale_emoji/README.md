@@ -49,11 +49,11 @@ final flagSk = localeSk.flagEmoji; // 🇸🇰
 
 ## Additional information
 
-Defaults might be updated in the origin: [`cldr-core`](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/likelySubtags.json).
-In case of any updates in `cldr-core`, please, run the following command in the root of the repository and submit a PR.
+Defaults might be updated in the origin: [`cldr-json`](https://github.com/unicode-org/cldr-json).
+In case of any updates in `cldr-json`, please, run the following command in the root of the repository and submit a PR.
 
 ```console
-dart tools/update_defaults.dart
+dart tool/update_defaults.dart
 ```
 
 ## Support
