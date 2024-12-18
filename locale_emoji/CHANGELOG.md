@@ -1,3 +1,11 @@
+## 1.0.0
+
+- Update README
+- Update defaults
+- Input parameters are no longer normalized:
+  - script code is no longer capitalized
+  - language code is no longer lowercased
+
 ## 0.2.1
 
 - Update README

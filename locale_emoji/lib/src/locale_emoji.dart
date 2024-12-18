@@ -1,5 +1,4 @@
 import 'defaults.dart';
-import 'utils.dart';
 
 /// We can receive the UTF-16 code index from the character using [String.runes].
 /// The UTF-16 A is positioned at 65 (0x41),
@@ -41,11 +40,11 @@ String? getFlagEmoji({
 String? _countryFromLanguage(String? languageCode, String? scriptCode) {
   if (languageCode == null) return null;
 
-  final language = scriptCode != null && scriptCode.isNotEmpty
-      ? '${languageCode.toLowerCase()}-${scriptCode.capitalized()}'
-      : languageCode.toLowerCase();
+  final languageTag = scriptCode != null && scriptCode.isNotEmpty
+      ? '$languageCode-$scriptCode'
+      : languageCode;
 
-  return languageCodeToCountryCode[language];
+  return languageCodeToCountryCode[languageTag];
 }
 
 /// Converts country code to the actual Flag Emoji
